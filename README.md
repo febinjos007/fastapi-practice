@@ -1,0 +1,2 @@
+# fastapi-practice
+Learn FastApi
