@@ -21,7 +21,7 @@ def get_comment(id: int, comment_id: int, valid: bool = True, username: Optional
 
     - **id** mandatory path parameter
     - **comment_id** mandatory path parameter
-    - **valid** optinal query parameter
+    - **valid** optional query parameter
     - **username** optional query parameter
     """
     return {'message': f'Blog_id {id}, comment_id {comment_id}, valid {valid}, username {username}'}
