@@ -8,4 +8,4 @@ app.include_router(blog_post.router)
 
 @app.get('/')
 def index():
-    return 'Hello World'
+    return 'Hello World!!'
