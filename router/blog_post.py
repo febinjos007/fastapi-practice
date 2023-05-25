@@ -48,3 +48,6 @@ def create_comment(blog: BlogModel, id: int,
         'author': author,
         'version': v
     }
+
+def required_functionality():
+    return {'messsage': 'Learning FastApi is important'}
