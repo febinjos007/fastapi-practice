@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Response, Header, Cookie, Form
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from typing import Optional
+import time
 
 router = APIRouter(
     prefix='/product',
@@ -9,13 +10,20 @@ router = APIRouter(
 
 products = ['watch', 'camera', 'phone']
 
+async def time_consuming_functionality():
+    time.sleep(5)
+    return 'ok'
+
 @router.post('/new')
 def create_product(name: str = Form(...)): # ... is the Ellipsis symbol denoting multiple argument can be present
     products.append(name)
     return products
 
+# 'async' keyword makes the functionality async. async function should have an 'await' function call in it.
+# the function that awaits should also be marked as async
 @router.get('/all')
-def get_all_products():
+async def get_all_products():
+    await time_consuming_functionality()
     data = " ".join(products)
     response = Response(content=data, media_type='text/plain')
     response.set_cookie(key="test_cookie", value="test_cookie_value")
